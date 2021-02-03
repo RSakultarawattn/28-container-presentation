@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getArticles } from '../../services/newsApi';
+import ArticleList from './ArticleList';
 
 export default class AllArticles extends Component {
     state = {
