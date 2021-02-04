@@ -1,43 +1,49 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import SearchInput from '../components/search/SearchInput';
+import ArticleList from '../components/article/ArticleList';
+import Searchinput2 from '../components/search/SearchInput2';
 import { getArticles } from '../services/newsApi';
 
 export default class NewsSearch extends Component {
-    state {
-        articles [],
-        query: ''
+    state = {
+      search: 'horse',
+      articles: [],
+      loading: false,
     }
 
     componentDidMount() {
-        getArticles(this.state.query)
-        .then(console.log)
-        .then(articles => this.setState({ articles }))
+      this.fetchArticles();
     }
-
-        handleChange = ({ target }) => {
-            this.setState({ query: target.value });
-        }
-        render() {
-            const { articles, query } = this.state;
-            return (
-                <section>
-                    <SearchInput
-                    query={query}
-                    onHandleChange={this.handleChange}
-                    />
-                </section>
-            )
-        }
+    
+      fetchArticles = (search) => {
+        this.setState({ loading: true });
+        getArticles(search).then((articles) =>
+          this.setState({ articles, loading: false })
+        );
+      };
+    
+      handleSearch = (event) => {
+        event.preventDefault();
+        this.fetchArticles(this.state.search);
+        
+      };
+      handleChange = ({ target }) => {
+        this.setState({ search: target.value });
+      }
+      render() {
+        const { search, articles, loading } = this.state;
+    
+        return (
+          <>
+            <Searchinput2 search={search} 
+              handleChange={this.handleChange} 
+              onSubmit={this.handleSearch} />
+            {loading && <h1>Loading</h1>}
+            <ArticleList articles={articles} />
+          </>
+        );
+      }
     
         
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+    
 }
 
-export default NewsSearch;
