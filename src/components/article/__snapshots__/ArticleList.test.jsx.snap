@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article item component renders an article 1`] = `
+<DocumentFragment>
+  <h1>
+    Make a search....
+  </h1>
+</DocumentFragment>
+`;
