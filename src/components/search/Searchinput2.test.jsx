@@ -12,7 +12,7 @@ function handleSearch() {
 
 describe('search input', () => {
   afterEach(() => cleanup());
-  it('renders App', () => {
+  it('renders article', () => {
     const { asFragment } = render(<Searchinput2 search={search} 
       handleChange={handleChange} 
       onSubmit={handleSearch} />);

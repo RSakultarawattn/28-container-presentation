@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 //import styles from './Article.css';
 
 const Article = ({ title, url, image }) => (
-  <a className={Article} href={url}>
+  <a className="Article" href={url}>
     <figure>
       <img src={image} alt={title} />
       <figcaption>{title}</figcaption>
