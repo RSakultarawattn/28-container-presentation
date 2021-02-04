@@ -23,8 +23,8 @@ export default function SearchInput({ setArticles, setLoading }) {
 
   return (
     <form onSubmit = {handleSubmit}>
-      // eslint-disable-next-line max-len
-      // eslint-disable-next-line max-len
+     
+     
       <input type="text" placeholder="search" 
       onChange={handleChange}/>
       <button type="submit" >
