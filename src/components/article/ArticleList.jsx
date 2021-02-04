@@ -1,30 +1,20 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import Article from './Article';
-
-const ArticleList = ({ articles }) => {
-  const articleElements = articles.map(article => ( 
-    <>
-      <li>
-        <Article {...article} />
-      </li>
-    
-    </>
-  ));
-  return (
-    <ul>
-      {articleElements}
-    </ul>
-  );
-};
-ArticleList.propTypes = {
-  articles: propTypes.arrayOf(propTypes.shape({
-    title: propTypes.string.isRequired,
-    author: propTypes.string.isRequired,
-    description: propTypes.string.isRequired
-  })).isRequired
-};
-export default ArticleList;
+import PropTypes from 'prop-types';
 
 
-
+export default function ArticleList({ articles }) {
+    console.log('THIS IS A CONSOLE LOG', articles);
+    return (
+      <ul>
+        {articles.map((article) => (
+          <li key={article.id + Date.now()}>
+            <Article article={article} />
+          </li>
+        ))}
+      </ul>
+    );
+  }
+  ArticleList.propTypes = {
+    articles: PropTypes.array,
+  };
