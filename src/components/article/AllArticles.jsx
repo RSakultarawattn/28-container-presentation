@@ -1,24 +1,19 @@
-import React, { Component } from 'react';
-import { getArticles } from '../../services/newsApi';
+import React, { useState } from 'react';
 import ArticleList from './ArticleList';
+import SearchInput from '../search/SearchInput';
 
-export default class AllArticles extends Component {
-    state = {
-      articles: []
-    }
 
-    componentDidMount() {
-      getArticles()
-        .then(articles => this.setState({ articles }));
+export default function AllArticles() {
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
     
-    }
+  
+  return (
+    <>
+      <SearchInput setArticles = {setArticles} setLoading = {setLoading}/>
+      <ArticleList articles={articles} />
+    </>
 
-    render() {
-      const { articles } = this.state;
-
-      return (
-        <ArticleList articles={articles} />
-
-      );
-    }
+  );
+    
 }
