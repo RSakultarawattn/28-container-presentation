@@ -1,9 +1,15 @@
 import React from 'react';
-import AllArticles from '../article/AllArticles';
+import NewsSearch from '../../containers/NewsSearch';
+
+
+
+
 export default function App() {
   return (
     <>
-      <AllArticles />
+      <NewsSearch />
+      
     </>
+   
   );
 }

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search input renders article 1`] = `
+<DocumentFragment>
+  <form>
+    <input
+      placeholder="type words here"
+      type=""
+    />
+    <button
+      type="submit"
+    >
+      submit
+    </button>
+  </form>
+</DocumentFragment>
+`;
