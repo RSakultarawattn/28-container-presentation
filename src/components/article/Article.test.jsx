@@ -6,7 +6,6 @@ describe('article item component', () => {
   afterEach(() => cleanup());
   it('renders one single article', () => {
     const { asFragment } = render(<Article 
-    
     />);
     expect(asFragment()).toMatchSnapshot();
   });
